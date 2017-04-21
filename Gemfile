@@ -4,6 +4,8 @@ gem 'rails', '3.2.22.5'
 gem 'jquery-rails'
 gem 'slim-rails'
 gem 'sqlite3'
+gem 'jquery-ui-rails'
+gem 'jquery-turbolinks'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

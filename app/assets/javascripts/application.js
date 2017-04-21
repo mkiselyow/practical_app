@@ -13,3 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+//= require jquery-ui
+//= require jquery-ui/core
+//= require jquery-ui/widget
+//= require jquery-ui/position
+//= require jquery.turbolinks
+//= require_tree .

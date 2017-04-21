@@ -1,3 +1,4 @@
+
 h1 Listing items
 
 table
@@ -9,9 +10,9 @@ table
       th
       th
 
-  tbody
+  tbody#sortable
     - @items.each do |item|
-      tr
+      tr.ui-state-default
         td = item.name
         td = item.done
         td = link_to 'Show', item
@@ -21,3 +22,16 @@ table
 br
 
 = link_to 'New Item', new_item_path
+
+
+table.table.table-striped.sortable
+  thead
+    tr
+      th
+        | Name
+  tbody
+    |  <% @items.each do |item| %> 
+    tr
+      td
+        | <%= item.name %>
+    |  <% end %> 
