@@ -19,19 +19,8 @@ table
         td = link_to 'Edit', edit_item_path(item)
         td = link_to 'Destroy', item, data: { confirm: 'Are you sure?' }, method: :delete
 
-br
+hr
 
 = link_to 'New Item', new_item_path
 
-
-table.table.table-striped.sortable
-  thead
-    tr
-      th
-        | Name
-  tbody
-    |  <% @items.each do |item| %> 
-    tr
-      td
-        | <%= item.name %>
-    |  <% end %> 
+hr
