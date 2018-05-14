@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
-    @items = Item.all
+    @items = Item.order(:position)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -81,20 +81,11 @@ class ItemsController < ApplicationController
     end
   end
 
-  def ordering
-    if (@orders = params[:items_ids]) && (@orders.present?)
-      @orders = JSON.parse(params[:items_ids])
-      if @orders.kind_of?(Array) && @orders.size > 0
-        # Let build hash for mass update
-        data = {}
-        @orders.each_with_index do |iden, index|
-          data[iden] = {ordering: index}
-        end
-        Item.all.update(data.keys, data.values) # still update one-by-one at backend
-      end
+  def sort
+    p params
+    params[:item].each_with_index do |id, index|
+      Item.update_all({position: index+1}, {id: id})
     end
-    respond_to do |format|
-      format.html { redirect_to items_path }
-    end
+    render nothing: true
   end
 end

@@ -10,9 +10,10 @@ table
       th
       th
 
-  tbody#sortable
-    - @items.each do |item|
-      tr.ui-state-default
+  tbody#sortable data-update-url=sort_items_url
+    - @items.each_with_index do |item, index|
+      tr class="ui-state-default" id="item_#{item.id}"
+        td = "position_#{item.position} id_#{item.id}"
         td = item.name
         td = item.done
         td = link_to 'Show', item
